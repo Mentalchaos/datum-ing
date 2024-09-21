@@ -1,0 +1,9 @@
+.logo-datum {
+  position: absolute;
+  top: -6px;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  height: 100px;
+  width: 300px;
+}
