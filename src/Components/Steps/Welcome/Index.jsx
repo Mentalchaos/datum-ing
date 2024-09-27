@@ -9,7 +9,7 @@ const welcometext = [
   "¡Comencemos!"
 ];
 
-const Welcome = () => {
+const Welcome = ({ next }) => {
   return (
     <>
       <div className="welcome-text">
@@ -18,7 +18,7 @@ const Welcome = () => {
         }
       </div>
       <div className="button-cont">
-        <Button text="Siguiente" />
+        <Button text="Siguiente" onClick={next} />
       </div>
     </>
   )

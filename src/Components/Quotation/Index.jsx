@@ -1,5 +1,5 @@
 import Steps from '../Steps/Index';
-import "./quotation.css"
+import "./quotation.css";
 
 const Quotation = () => {
   return (
