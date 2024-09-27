@@ -5,6 +5,7 @@ import './App.css';
 import Logo from './Components/Logo/Index';
 import Header from './Components/Header/Index';
 import Quotation from './Components/Quotation/Index';
+import Footer from './Components/Footer/Index.jsx';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Header />
       <Quotation />
       <Logo />
+      <Footer />
     </div>
   );
 }

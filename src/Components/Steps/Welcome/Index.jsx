@@ -1,7 +1,6 @@
 import Button from '../../Button/Index';
 import './welcome.css';
 
-
 const welcometext = [
   "Bienvenido a nuestra calculadora de cotizaciones topográficas",
   "Este sistema te permitirá obtener una estimación aproximada del costo de nuestros servicios.",
@@ -12,14 +11,16 @@ const welcometext = [
 
 const Welcome = () => {
   return (
-    <div className="welcome-text">
-      {
-        welcometext.map(data => <p key={data}>{data}</p>)
-      }
-      <div className="button-cont">
-        <Button text={"Siguiente"} />
+    <>
+      <div className="welcome-text">
+        {
+          welcometext.map(data => <p className="welcome-paragraph" key={data}>{data}</p>)
+        }
       </div>
-    </div>
+      <div className="button-cont">
+        <Button text="Siguiente" />
+      </div>
+    </>
   )
 }
 

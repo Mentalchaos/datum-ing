@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+.App {
+  background: #d6d1d12e;
+}
+
 .button-cont {
   display: flex;
   justify-content: center;
