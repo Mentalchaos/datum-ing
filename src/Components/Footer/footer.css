@@ -1,5 +1,9 @@
 .datum-footer {
-    height: 9vh;
-    background: black;
-    opacity: 0.88;
+  height: 9vh;
+  background: black;
+  opacity: 0.88;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
 }

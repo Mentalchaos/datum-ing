@@ -1,0 +1,50 @@
+1. Tipo de servicio (Selector de opciones)
+Un dropdown para que el usuario elija el tipo de levantamiento topográfico:
+Levantamiento básico
+Levantamiento catastral
+Levantamiento altimétrico/planimétrico
+Fotogrametría con drones
+Monitoreo geotécnico
+
+2. Área del terreno (Input numérico)
+Superficie aproximada del terreno en metros cuadrados o hectáreas.
+
+3. Ubicación del terreno (Campo de texto o input de mapa)
+Dirección o coordenadas del terreno. Esto puede ayudar a calcular costos de transporte y logística.
+También puede ser útil para determinar si el área es de fácil o difícil acceso.
+
+4. Accesibilidad (Selector de opciones)
+Un campo para que el usuario elija entre:
+Fácil acceso (terreno plano y despejado)
+Acceso moderado (terreno con algunas dificultades, como vegetación o pequeñas pendientes)
+Difícil acceso (área montañosa, densa vegetación, etc.)
+
+5. Precisión requerida (Selector de opciones)
+El usuario puede elegir la precisión del levantamiento, lo que afectará los equipos y el tiempo necesario:
+Baja precisión (para estudios preliminares)
+Precisión media (para estudios estándar)
+Alta precisión (para construcción e infraestructura)
+
+6. Plazo de entrega (Input de selección de fecha)
+Fecha deseada de entrega. Si el plazo es muy corto, la cotización puede aumentar por la urgencia.
+
+7. Tipo de terreno (Selector de opciones)
+Clasificación del terreno:
+Urbano
+Rural
+Montañoso
+Costero
+Con cuerpos de agua
+
+8. Tecnología preferida (Selector de opciones)
+Permitir que el usuario elija (si tiene preferencia) la tecnología a utilizar:
+GPS diferencial
+Estación total
+Drones (fotogrametría)
+LIDAR
+
+9. Mano de obra adicional (Checkbox o selector)
+Si el cliente sabe que necesitará un equipo más grande por la complejidad del proyecto.
+
+10. Descripción adicional del proyecto (Campo de texto)
+Un espacio para que el usuario describa detalles específicos del proyecto que podrían afectar el costo (como restricciones legales, normativas, o características inusuales del terreno).

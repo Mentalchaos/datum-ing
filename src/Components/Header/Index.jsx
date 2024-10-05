@@ -1,8 +1,11 @@
 import './header.css';
+import Logo from '../Logo/Index';
 
 const Header = () => {
   return (
-    <div className="header-cont"></div>
+    <div className="header-cont">
+      <Logo />
+    </div>
   )
 }
 

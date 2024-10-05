@@ -6,6 +6,7 @@
 
 .App {
   background: #d6d1d12e;
+  position: relative;
 }
 
 .button-cont {

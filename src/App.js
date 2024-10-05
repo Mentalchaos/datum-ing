@@ -12,7 +12,6 @@ const App = () => {
     <div className="App">
       <Header />
       <Quotation />
-      <Logo />
       <Footer />
     </div>
   );
