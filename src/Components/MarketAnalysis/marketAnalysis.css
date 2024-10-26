@@ -1,0 +1,205 @@
+.market-container {
+    min-height: 100vh;
+    font-family: "Roboto", Sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.market-content {
+    padding: 1em 1em 1em 6em;
+    display: flex;
+    max-height: 80vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.left-market-content {
+  width: 30%;
+  padding-right: 2em;
+}
+
+.right-market-content {
+  width: 75%;
+}
+
+/* .market-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  } */
+
+  .company-card {
+    position: absolute;
+    top: 17%;
+    left: 0;
+    background-image: url('../../Assets/Imgs/topograph-background.avif');
+    background-size: cover;
+    background-position: center;
+    width: 35vh;
+    max-width: 35vh;
+    height: 45vh;
+    color: white;
+    background-color: #888;
+    padding: 1em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .company-card-placeholder {
+    width: 80vh;
+    max-width: 300px;
+  }
+
+  .company-card p {
+    font-size: 15px;
+    padding-top: 1em;
+    width: 200px;
+  }
+
+  /* Sidebar styles */
+  .market-sidebar {
+    max-height: 70vh;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .market-sidebar-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .market-company-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .market-company-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-bottom: 2px solid #fff;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .market-company-item:hover {
+    border-bottom: 2px solid #ef3333;
+  }
+  
+  .market-company-item.active {
+    background-color: #ef3333;
+    border-bottom: 2px solid #ef3333;
+    color: white;
+  }
+  
+  /* Info box styles */
+  .market-info-box {
+    position: relative;
+    display: flex;
+    padding: 30px;
+    height: 75vh;
+    border-radius: 10px;
+    overflow-y: auto;
+  }
+
+  .market-info-box-content {
+    padding: 1em 2em 1em 10em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 90%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .market-info-box-header {
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .market-info-box-header button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    margin-right: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 4px solid #f8f7f7;
+  }
+  
+  .market-info-box-header button:hover {
+    color: #ef3333;
+    border-bottom: 4px solid #ef3333;
+  }
+  
+  .market-info-box-header button:focus {
+    outline: none;
+    color: #ef3333;
+    border-bottom: 4px solid #ef3333;
+  }
+
+  .market-option.active {
+    color: #ef3333;
+    border-bottom: 4px solid #ef3333;
+  }
+
+  .market-option {
+    width: 25%;
+  }
+  
+  .market-company-name {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .market-contact-info, .market-data-section {
+    margin-bottom: 20px;
+    padding-left: 1em;
+  }
+  
+  .market-contact-info p, .market-data-list li {
+    margin: 5px 0;
+  }
+  
+  .market-data-heading {
+    margin-bottom: 10px;
+  }
+  
+  .market-data-list {
+    padding-top: 2em;
+    list-style: none;
+  }
+  
+  .market-operation-list {
+    list-style: none;
+    padding-top: 2em;
+  }
+  
+  /* Graphs section styles */
+  .market-graphs-section {
+    margin-top: 20px;
+  }
+  
+  .market-graph-heading {
+    margin-bottom: 10px;
+  }
+  
+  .market-graph-placeholder {
+    height: 300px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+  }
+  
