@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.market-modal-content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .market-modal-text {
+    flex: 1;
+    color: rgb(68, 68, 68);
+    text-align: center;
+  }
+  
+  .market-modal-animation {
+    cursor: default;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .market-modal-text p {
+    font-size: 22px;
+  }
+
+  .market-modal-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 1em;
+    letter-spacing: 2px;
+  }

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { companies } from '../../Data/companies';
+import Modal from '../Modal/Modal';
+import MarketModalContent from './MarketModalContent';
 import './marketAnalysis.css';
+
 
 const MarketAnalysis = () => {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [activeSection, setActiveSection] = useState("Tecnologías");
+  const [isModalOpen, setModalOpen] = useState(true);
 
   const renderSectionContent = () => {
     switch (activeSection) {
@@ -12,7 +16,7 @@ const MarketAnalysis = () => {
         return (
           <ul className="market-data-list">
             {Object.entries(selectedCompany.tecnologias).map(([tech, available]) => (
-              <li key={tech}>
+              <li className='tech-item' key={tech}>
                 {tech}: {available ? "Si" : "No/No especificado"}
               </li>
             ))}
@@ -43,11 +47,12 @@ const MarketAnalysis = () => {
 
   return (
     <div className="market-container">
-      <div className="market-content">
-        {/* Sidebar */}
+      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+        <MarketModalContent />
+      </Modal>
 
+      <div className="market-content">
         <div className="right-market-content">
-          {/* Info Box */}
           <div className="market-info-box">
             <div className="company-card">
               <h2 className="market-company-name">{selectedCompany.nombre_empresa}</h2>
@@ -80,9 +85,7 @@ const MarketAnalysis = () => {
                 </button>
               </div>
 
-
               <div className="market-data-section">
-                {/* <h3 className="market-data-heading">{activeSection}</h3> */}
                 {renderSectionContent()}
               </div>
             </div>

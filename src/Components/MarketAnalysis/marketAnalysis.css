@@ -108,12 +108,19 @@
     overflow-y: auto;
   }
 
+ /*  .tech-item {
+    background-color: #ef3333;
+    width: 150px;
+    padding: 1em;
+  } */
+
   .market-info-box-content {
     padding: 1em 2em 1em 10em;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    min-width: 90%;
+    min-width: 95%;
+    width: 95%;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   }
 
@@ -160,6 +167,12 @@
     margin-bottom: 20px;
     font-size: 24px;
   }
+
+  /* .market-data-section {
+    background-color: aqua;
+    width: 80%;
+    height: 100%;
+  } */
   
   .market-contact-info, .market-data-section {
     margin-bottom: 20px;
@@ -175,6 +188,9 @@
   }
   
   .market-data-list {
+   /*  width: 100%;
+    display: flex;
+    flex-wrap: wrap; */
     padding-top: 2em;
     list-style: none;
   }
