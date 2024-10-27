@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .market-container {
     min-height: 100vh;
     font-family: "Roboto", Sans-serif;
@@ -114,6 +116,16 @@
     padding: 1em;
   } */
 
+  .market-item {
+    font-size: 20px;
+    /* font-weight: 25px; */
+  }
+
+  .market-areas {
+    font-size: 27px;
+    padding: 16px 0;
+  }
+
   .market-info-box-content {
     padding: 1em 2em 1em 10em;
     border-radius: 10px;
@@ -125,6 +137,7 @@
   }
 
   .market-info-box-header {
+    font-family: "Bebas Neue", sans-serif ;
     font-weight: 600;
     font-size: 20px;
     display: flex;
@@ -168,11 +181,10 @@
     font-size: 24px;
   }
 
-  /* .market-data-section {
-    background-color: aqua;
+  .market-data-section {
+    display: flex;
     width: 80%;
-    height: 100%;
-  } */
+  }
   
   .market-contact-info, .market-data-section {
     margin-bottom: 20px;
@@ -180,8 +192,18 @@
   }
   
   .market-contact-info p, .market-data-list li {
-    margin: 5px 0;
+    margin: 7px 0;
   }
+
+  .market-list-item:hover {
+    opacity: 0.9;
+    color: #ef3333;
+    cursor: pointer;
+  }
+
+  /* .market-data-list li:hover {
+    
+  } */
   
   .market-data-heading {
     margin-bottom: 10px;

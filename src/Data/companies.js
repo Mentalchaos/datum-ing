@@ -218,58 +218,6 @@ export const companies = [
       }
     },
     {
-      "nombre_empresa": "Orbe Topografía",
-      "contacto": {
-        "telefono": "+569 54999514",
-        "correo": "orbe.topografia@gmail.com",
-        "localizacion": "Pasaje Dos 293, Villa Alemana, Marga Marga, Región de Valparaíso, Chile"
-      },
-      "tecnologias": {
-        "drones": true,
-        "estaciones_roboticas": true,
-        "LIDAR": "No especificado",
-        "fotogrametria": true,
-        "gps_gnss": "No especificado",
-        "rtk_gps": true,
-        "georeferenciacion": "No especificado",
-        "sistemas_informacion_geografica": "No especificado",
-        "modelado_cad": "No especificado",
-        "escaner_laser_3d": true,
-        "imagenes_satelitales": "No especificado",
-        "sensores_multiespectrales": "No especificado",
-        "bim": "No especificado"
-      },
-      "servicios": {
-        "levantamientos_topograficos": true,
-        "cartografia_digital_y_modelos_digitales_de_elevacion": "No especificado",
-        "levantamientos_catastrales": "No especificado",
-        "levantamientos_batimetricos": "No especificado",
-        "georreferenciacion_de_imagenes_satelitales_o_aereas": "No especificado",
-        "levantamiento_con_drones": "No especificado",
-        "topografia_para_construccion": "No especificado",
-        "monitoreo_de_deformaciones_y_movimientos": "No especificado",
-        "monitoreo_estructural_en_tiempo_real": "No especificado",
-        "control_de_maquinaria": "No especificado",
-        "estudios_geodesicos": "No especificado",
-        "sistemas_de_informacion_geografica": "No especificado",
-        "escaner_laser_3d": true
-      },
-      "certificaciones": {
-        "ISO_9001": "No especificado",
-        "certificacion_para_drones": "No especificado",
-        "licencias_topografos": "No especificado",
-        "cumplimiento_normas_locales": "No especificado"
-      },
-      "areas_operacion": [
-        "No especificado"
-      ],
-      "tarifas": {
-        "tarifa_por_proyecto": "Variable",
-        "paquetes_de_servicio": "Disponible bajo solicitud",
-        "cotizaciones": "Contactar para más información"
-      }
-    },
-    {
       "nombre_empresa": "AirWork",
       "contacto": {
         "telefono": "+56 2 2442 0400",

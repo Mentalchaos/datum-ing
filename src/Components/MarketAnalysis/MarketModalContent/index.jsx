@@ -18,15 +18,19 @@ const MarketModalContent = () => {
       <div className="market-modal-text">
         <div className='market-modal-title'>¿Qué es el Análisis de Mercado?</div>
         <p>
-          La información que ves en esta sección se obtiene automáticamente mediante el uso de 
-          scrapers o "bots", herramientas programadas para recolectar datos de fuentes públicas. 
-          Esto permite analizar tecnologías, servicios y áreas de operación de diversas empresas 
-          de manera rápida y precisa. Es una forma eficiente de mantener el análisis actualizado 
-          sin intervención manual.
+          La información que verás en esta sección es un ejemplo de cómo aprovechamos
+          herramientas automatizadas, como scrapers o "bots", para recopilar grandes
+          volúmenes de datos disponibles en fuentes públicas. Estas tecnologías nos
+          permiten extraer información precisa y detallada sobre una amplia variedad
+          de temas, desde el análisis de mercado y la comparación de servicios hasta tendencias
+          sectoriales y otros datos accesibles públicamente. En este caso, los datos de las compañías
+          son solo una demostración de nuestras capacidades de extracción. Gracias a este
+          enfoque, podemos ofrecer análisis completos y constantemente actualizados, eliminando la necesidad
+          de intervención manual y asegurando que los datos reflejen los últimos cambios.
         </p>
       </div>
       <div className="market-modal-animation" onClick={(e) => e.stopPropagation()}>
-        <Lottie 
+        <Lottie
           options={defaultOptions}
           height={500}
           width={500}
