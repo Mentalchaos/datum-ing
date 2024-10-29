@@ -102,8 +102,6 @@ const Steps = () => {
             />
           </Modal>
         );
-      default:
-        return <div>Paso no encontrado</div>;
     }
   };
 

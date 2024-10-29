@@ -1,1 +1,2 @@
-- Cambiar inputs de presition a terreno segun corresponda
+- Agregar el color azul a el texto "Aquí" de la primera pantalla de steps
+- Agregar iconos a la sección del resumen
