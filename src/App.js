@@ -9,18 +9,19 @@ import Quotation from './Components/Quotation/Index';
 import MarketAnalysis from './Components/MarketAnalysis';
 import Footer from './Components/Footer/Index';
 /* import Home from './Components/Home/Index'; */
+// Components
+import Header from './Components/Header/Index';
+import Steps from './Components/Steps/Index';
 
 const App = () => {
   return (
     <div className="App">
       <Router>
         <Header />
-        
         <Routes>
-          <Route path="/" element={<Quotation />} />
+          <Route path="/" element={<Steps />} />
           <Route path="/market" element={<MarketAnalysis />} />
         </Routes>
-
         <Footer />
       </Router>
     </div>

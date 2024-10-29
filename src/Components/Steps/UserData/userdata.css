@@ -1,10 +1,16 @@
 .user-data {
-    padding: 2em;
-    font-family: 'Roboto';
-    font-size: 16px;
-    border: none;
-    width: 35%;
-    border-radius: 5px;
-    background: white;
-    box-shadow: 0px 0px 4px 0px #dfdfdf;
-  }
+  padding: 2em;
+  font-family: 'Roboto';
+  font-size: 16px;
+  border: none;
+}
+
+.inputs {
+  border: none !important;
+  border-radius: 8px !important;
+  background: #EEEEEE !important;
+  color: #4E4E4E !important;
+  font-family: 'Roboto' !important;
+  margin-bottom: 2em !important;
+  height: 36px !important;
+}

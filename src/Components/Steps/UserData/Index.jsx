@@ -4,17 +4,61 @@ import "./userdata.css";
 
 const UserData = ({ next, userInformation, setUserInformation }) => {
 
+  const { email, username, company, phoneNumber } = userInformation;
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setUserInformation({
+      ...userInformation,
+      [name]: value
+    });
+  };
+
+  console.log('userInformation', userInformation);
+
   return (
     <div className="user-data">
-      <p>Para comenzar necesitamos que nos proporciones tus datos</p>
+      <p><strong>Ingrese la siguiente información para poder contactarlo</strong></p>
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Nombre</Form.Label>
-          <Form.Control onChange={e => setUserInformation({ email: userInformation.email, name: e.target.value })} value={userInformation?.name} type="text" placeholder="Ingresa tu nombre" />
+        <Form.Group className="mb-3" controlId="username">
+          <Form.Control 
+            className="inputs" 
+            onChange={handleChange} 
+            value={username} 
+            name="username"
+            type="text" 
+            placeholder="Nombre completo" 
+          />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control onChange={e => setUserInformation({ name: userInformation.name, email: e.target.value })} value={userInformation?.email} type="email" placeholder="Ingresa tu correo" />
+        <Form.Group className="mb-3" controlId="company">
+          <Form.Control 
+            className="inputs" 
+            onChange={handleChange} 
+            value={company} 
+            name="company"
+            type="text" 
+            placeholder="Empresa de la cual nos contacta" 
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="email">
+          <Form.Control 
+            className="inputs" 
+            onChange={handleChange} 
+            value={email} 
+            name="email"
+            type="email" 
+            placeholder="Ingresa tu correo" 
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="phoneNumber">
+          <Form.Control 
+            className="inputs" 
+            onChange={handleChange} 
+            value={phoneNumber} 
+            name="phoneNumber"
+            type="text"
+            placeholder="Número telefonico" 
+          />
         </Form.Group>
         <Button text="Siguiente" onClick={next} />
       </Form>

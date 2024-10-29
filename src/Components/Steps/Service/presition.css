@@ -1,8 +1,4 @@
 .topography-form {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0px 0px 4px 0px #dfdfdf;
   border: none;
 }
 
@@ -10,14 +6,21 @@
   margin-bottom: 15px;
 }
 
+.form-control {
+  border: none;
+  background: #EEEEEE;
+  font-family: 'Helvetica Neue';
+  color: #4E4E4E;
+}
+
+.presition-cont {
+  width: 100%;
+}
+
 .form-title {
   text-align: center;
   margin-bottom: 30px;
   font-weight: bold;
-}
-
-.presition-cont {
-  padding: 0 100px 100px 100px;
 }
 
 .button-cont {
@@ -38,4 +41,8 @@
 .button-cont {
   text-align: center;
   margin-top: 20px;
+}
+
+.form-group {
+  text-align: left;
 }

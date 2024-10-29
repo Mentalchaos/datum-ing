@@ -1,11 +1,11 @@
 
 .button {
   color: white;
-  width: 128px;
-  height: 52px;
-  background: #f01b1c;
-  border-radius: 1px;
-  padding: 20px 30px;
+  width: 75px;
+  height: 38px;
+  background: #CB1717;
+  border-radius: 10px;
+  padding: 12px;
   font-size: 12px;
   font-family: "Roboto", Sans-serif;
   margin: 1em;
@@ -18,7 +18,5 @@
 
 .button:hover {
   cursor: pointer;
-  transform: scale(1.05);
   background-color: #C40303;
-  border-radius: 2px;
 }
