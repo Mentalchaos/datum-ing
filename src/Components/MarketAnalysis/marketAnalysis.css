@@ -26,12 +26,6 @@
   width: 75%;
 }
 
-/* .market-container {
-    display: flex;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-  } */
-
   .company-card {
     position: absolute;
     top: 17%;
@@ -61,7 +55,6 @@
     width: 200px;
   }
 
-  /* Sidebar styles */
   .market-sidebar {
     max-height: 70vh;
     width: 250px;
@@ -100,7 +93,6 @@
     color: white;
   }
   
-  /* Info box styles */
   .market-info-box {
     position: relative;
     display: flex;
@@ -110,15 +102,8 @@
     overflow-y: auto;
   }
 
- /*  .tech-item {
-    background-color: #ef3333;
-    width: 150px;
-    padding: 1em;
-  } */
-
   .market-item {
     font-size: 20px;
-    /* font-weight: 25px; */
   }
 
   .market-areas {
@@ -201,18 +186,12 @@
     cursor: pointer;
   }
 
-  /* .market-data-list li:hover {
-    
-  } */
   
   .market-data-heading {
     margin-bottom: 10px;
   }
   
   .market-data-list {
-   /*  width: 100%;
-    display: flex;
-    flex-wrap: wrap; */
     padding-top: 2em;
     list-style: none;
   }
@@ -222,7 +201,6 @@
     padding-top: 2em;
   }
   
-  /* Graphs section styles */
   .market-graphs-section {
     margin-top: 20px;
   }

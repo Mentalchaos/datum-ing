@@ -2,13 +2,12 @@ import React from 'react';
 import { Form, Row, Col } from 'react-bootstrap';
 import Button from '../../Button/Index';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './presition.css';
+import './service.css';
 
-const Service = ({ serviceInformation, setServiceInformation }) => {
-  console.log('serviceInformation', serviceInformation);
-  console.log('setServiceInformation', setServiceInformation);
-
+const Service = ({ next, serviceInformation, setServiceInformation }) => {
   const { serviceType, deliveryDate, technology, description } = serviceInformation;
+
+  console.log('serviceInformation', serviceInformation);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +27,7 @@ const Service = ({ serviceInformation, setServiceInformation }) => {
         <Row>
           <Col md={100}>
             <Form.Group controlId="serviceType" className="form-group">
-              <Form.Label>Tipo de Servicio</Form.Label>
+              <strong><Form.Label>Tipo de Servicio</Form.Label></strong>
               <Form.Control
                 as="select"
                 name="serviceType"
@@ -37,11 +36,11 @@ const Service = ({ serviceInformation, setServiceInformation }) => {
                 required
               >
                 <option value="">Selecciona el tipo de servicio</option>
-                <option value="basic">Levantamiento básico</option>
-                <option value="cadastral">Levantamiento catastral</option>
-                <option value="altimetric">Levantamiento altimétrico/planimétrico</option>
-                <option value="drones">Fotogrametría con drones</option>
-                <option value="geotechnical">Monitoreo geotécnico</option>
+                <option value="Básico">Levantamiento básico</option>
+                <option value="catastral">Levantamiento catastral</option>
+                <option value="Levantamiento altimétrico">Levantamiento altimétrico/planimétrico</option>
+                <option value="Drones">Fotogrametría con drones</option>
+                <option value="Monitoreo geotécnico">Monitoreo geotécnico</option>
               </Form.Control>
             </Form.Group>
           </Col>
@@ -49,7 +48,7 @@ const Service = ({ serviceInformation, setServiceInformation }) => {
         <Row>
           <Col md={100}>
             <Form.Group controlId="deliveryDate" className="form-group">
-              <Form.Label>Fecha objetivo de entrega (Opcional)</Form.Label>
+              <strong><Form.Label>Fecha objetivo de entrega (Opcional)</Form.Label></strong>
               <Form.Control
                 type="date"
                 name="deliveryDate"
@@ -63,7 +62,7 @@ const Service = ({ serviceInformation, setServiceInformation }) => {
         <Row>
           <Col md={100}>
             <Form.Group controlId="technology" className="form-group">
-              <Form.Label>Tecnología preferida</Form.Label>
+              <strong><Form.Label>Tecnología preferida</Form.Label></strong>
               <Form.Control
                 as="select"
                 name="technology"
@@ -84,7 +83,7 @@ const Service = ({ serviceInformation, setServiceInformation }) => {
         <Row>
           <Col md={12}>
             <Form.Group controlId="description" className="form-group">
-              <Form.Label>Descripción adicional del proyecto</Form.Label>
+              <strong><Form.Label>Descripción adicional del proyecto</Form.Label></strong>
               <Form.Control
                 as="textarea"
                 rows={3}
@@ -96,9 +95,8 @@ const Service = ({ serviceInformation, setServiceInformation }) => {
             </Form.Group>
           </Col>
         </Row>
-
         <div className="button-cont">
-          <Button text="Continuar"></Button>
+          <Button text="Siguiente" onClick={next} />
         </div>
       </Form>
     </div>

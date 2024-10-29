@@ -1,0 +1,31 @@
+.terrain-cont .form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.terrain-cont .form-group label {
+  display: block;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.terrain-cont .form-group input,
+.terrain-cont .form-group select,
+.terrain-cont .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.terrain-cont .button-cont {
+  display: flex;
+  margin-top: 20px;
+}
+
+.terrain-cont {
+  width: 100%;
+}
