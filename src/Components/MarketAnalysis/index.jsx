@@ -78,7 +78,7 @@ const MarketAnalysis = () => {
   return (
     <div className="market-container">
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-        <MarketModalContent />
+        <MarketModalContent onClick={() => setModalOpen(false)}/>
       </Modal>
 
       <div className="market-content">

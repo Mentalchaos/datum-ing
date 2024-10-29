@@ -13,7 +13,7 @@ const Modal = ({ isOpen, onClose, children, width }) => {
 
   return (
     <div className="modal-overlay" onClick={handleClose}>
-      <div style={{ width }} className="modal-content">
+      <div style={{ width }} className="m-modal-content">
         <button className="modal-close-btn" onClick={onClose}>
           <FaTimes />
         </button>
