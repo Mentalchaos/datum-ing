@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-//Components
+// Components
 import Welcome from './Welcome/Index';
 import UserData from './UserData/Index';
 import Service from './Service/Index';
@@ -8,6 +8,7 @@ import Modal from './Modal/Index';
 import Terrain from './Terrain/Index';
 import Resume from './Resume/Index.jsx';
 import Success from './Success/Index.jsx';
+import StepIndicator from './StepIndicator/Index';
 
 // CSS
 import './steps.css';
@@ -41,7 +42,7 @@ const Steps = () => {
     terrainArea: '',
     terrainType: '',
     accesibility: ''
-  })
+  });
 
   const next = () => {
     if (actualStep < Object.keys(stepsData).length - 1) {
@@ -81,18 +82,18 @@ const Steps = () => {
               terrainInformation={terrainInformation}
               setTerrainInformation={setTerrainInformation}
             />
-          </Modal>)
+          </Modal>);
       case 4:
         return (
           <Modal>
-            <Resume 
+            <Resume
               next={next}
               terrainInformation={terrainInformation}
               serviceInformation={serviceInformation}
               userInformation={userInformation}
             />
           </Modal>
-        )
+        );
       case 5:
         return (
           <Modal>
@@ -100,7 +101,7 @@ const Steps = () => {
               next={next}
             />
           </Modal>
-        )
+        );
       default:
         return <div>Paso no encontrado</div>;
     }
@@ -111,6 +112,7 @@ const Steps = () => {
       <div className="steps-content">
         {stepsByNumber()}
       </div>
+      <StepIndicator actualStep={actualStep} />
     </div>
   );
 };
