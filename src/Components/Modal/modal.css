@@ -15,7 +15,7 @@
     position: relative;
     background-color: white !important;
     padding: 20px;
-    width: 80%;
+    max-width: 80%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }

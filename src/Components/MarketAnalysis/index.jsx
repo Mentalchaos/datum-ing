@@ -18,6 +18,7 @@ const MarketAnalysis = () => {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [activeSection, setActiveSection] = useState("Tecnologías");
   const [isModalOpen, setModalOpen] = useState(true);
+  const [isGraphModalOpen, setGraphModalOpen] = useState(false);
 
   const areaIcon = (area) => {
     switch (area) {
@@ -46,7 +47,11 @@ const MarketAnalysis = () => {
         return (
           <ul className="market-data-list">
             {Object.entries(selectedCompany.tecnologias).map(([tech, available]) => (
-              <li className='market-item tech-item market-list-item' key={tech}>
+              <li 
+                className='market-item tech-item market-list-item' 
+                key={tech}
+                onClick={() => setGraphModalOpen(true)}
+              >
                 {tech}: {available ? "Si" : "No/No especificado"}
               </li>
             ))}
@@ -79,6 +84,9 @@ const MarketAnalysis = () => {
     <div className="market-container">
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <MarketModalContent onClick={() => setModalOpen(false)}/>
+      </Modal>
+      <Modal isOpen={isGraphModalOpen} onClose={() => setGraphModalOpen(false)}>
+        hola jajjaja
       </Modal>
 
       <div className="market-content">

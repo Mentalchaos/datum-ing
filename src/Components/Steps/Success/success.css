@@ -41,3 +41,28 @@
 .send-button:hover {
   background-color: #c9302c;
 }
+
+.animation-container,
+.animation-container * {
+  cursor: default !important;
+}
+
+.fade-in-message {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 2s;
+  font-size: 1.5rem;
+  color: #4caf50;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
