@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { companies } from '../../Data/companies';
 import Modal from '../Modal/Modal';
 import MarketGraphs from './MarketGraphs';
@@ -21,6 +21,27 @@ const MarketAnalysis = () => {
   const [selectedData, setSelectedData] = useState(null);
   const [dataType, setDataType] = useState(null);
   const [comparisonData, setComparisonData] = useState([]);
+
+  const calculateGeneralData = (module, ocurrence) => {
+    const comparisonData = companies.map(company => {
+      const serviceCount = Object.entries(company[module] || {}).reduce((count, [key, value]) => {
+        return value === ocurrence ? count + 1 : count;
+      }, 0);
+      
+      return {
+        name: company.nombre_empresa,
+        value: serviceCount,
+      };
+    });
+  
+    console.log('comparison data', comparisonData);
+    return comparisonData;
+  };
+
+  console.log('calculateGeneralData services', calculateGeneralData("servicios", true))
+  console.log('calculateGeneralData tech', calculateGeneralData("tecnologias", true))
+
+  console.log('selectedCompany', selectedCompany)
 
   const areaIcon = (area) => {
     switch (area) {
@@ -75,7 +96,7 @@ const MarketAnalysis = () => {
                 key={tech}
                 onClick={() => handleItemClick('tecnologias', tech)}
               >
-                {tech}: {available ? "Si" : "No/No especificado"}
+                {tech}: {available === true ? "Si" : available === "no especificado" ? "No especificado" : "No"}
               </li>
             ))}
           </ul>
@@ -89,7 +110,7 @@ const MarketAnalysis = () => {
                 key={service}
                 onClick={() => handleItemClick('servicios', service)}
               >
-                {service}: {available ? "Si" : "No/No especificado"}
+                {service}: {available === true ? "Si" : available === "no especificado" ? "No especificado" : "No"}
               </li>
             ))}
           </ul>
@@ -113,13 +134,12 @@ const MarketAnalysis = () => {
     }
   };
 
-  console.log('selectedCompany', selectedCompany)
-
   return (
     <div className="market-container">
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <MarketModalContent onClick={() => setModalOpen(false)} />
       </Modal>
+      {/* modificar aca */}
       <Modal minWidth={'65%'} isOpen={isGraphModalOpen} onClose={() => setGraphModalOpen(false)}>
         {dataType && selectedData && (
           <div className='graph-header'>
