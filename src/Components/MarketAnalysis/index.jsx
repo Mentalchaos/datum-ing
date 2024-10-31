@@ -1,45 +1,68 @@
 import React, { useState } from 'react';
 import { companies } from '../../Data/companies';
 import Modal from '../Modal/Modal';
+import MarketGraphs from './MarketGraphs';
 
 import { IoIosConstruct } from "react-icons/io";
 import { GiMining } from "react-icons/gi";
-import { MdElectricBolt } from "react-icons/md";
+import { MdElectricBolt, MdForest, MdCellTower } from "react-icons/md";
 import { PiPlantFill } from "react-icons/pi";
-import { MdForest } from "react-icons/md";
-import { MdCellTower } from "react-icons/md";
 import { BiSolidCity } from "react-icons/bi";
+import { HiOutlineArrowsPointingOut } from "react-icons/hi2";
 
 import MarketModalContent from './MarketModalContent';
 import './marketAnalysis.css';
-
 
 const MarketAnalysis = () => {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [activeSection, setActiveSection] = useState("Tecnologías");
   const [isModalOpen, setModalOpen] = useState(true);
   const [isGraphModalOpen, setGraphModalOpen] = useState(false);
+  const [selectedData, setSelectedData] = useState(null);
+  const [dataType, setDataType] = useState(null);
+  const [comparisonData, setComparisonData] = useState([]);
 
   const areaIcon = (area) => {
     switch (area) {
       case "construcción":
-        return <IoIosConstruct style={{color: '#e8a543', marginRight: '5px'}}/>
+        return <IoIosConstruct style={{ color: '#e8a543', marginRight: '5px' }} />
       case "minería":
-        return <GiMining style={{color: '#f5716e', marginRight: '5px'}}/>
+        return <GiMining style={{ color: '#f5716e', marginRight: '5px' }} />
       case "energía":
-        return <MdElectricBolt style={{color: '#dfbb21', marginRight: '5px'}}/>
+        return <MdElectricBolt style={{ color: '#dfbb21', marginRight: '5px' }} />
       case "agricultura":
-        return <PiPlantFill style={{color: '#34ce74', marginRight: '5px'}}/>
+        return <PiPlantFill style={{ color: '#34ce74', marginRight: '5px' }} />
       case "forestal":
-        return <MdForest style={{color: '#23bf9f', marginRight: '5px'}}/>
+        return <MdForest style={{ color: '#23bf9f', marginRight: '5px' }} />
       case "telecomunicaciones":
-        return <MdCellTower style={{color: 'rgb(52 133 185)', marginRight: '5px'}}/>
+        return <MdCellTower style={{ color: 'rgb(52 133 185)', marginRight: '5px' }} />
       case "urbanismo":
-        return <BiSolidCity style={{color: '#829091', marginRight: '5px'}}/>
+        return <BiSolidCity style={{ color: '#829091', marginRight: '5px' }} />
       default:
         return null;
     }
-  }
+  };
+
+  const handleItemClick = (dataType, dataKey) => {
+    setDataType(dataType);
+    setSelectedData(dataKey);
+
+    if (dataType === 'areas_operacion') {
+      const comparisonData = companies.map(company => ({
+        name: company.nombre_empresa,
+        value: company.areas_operacion.includes(dataKey) ? 1 : 0
+      }));
+      setGraphModalOpen(true);
+      setComparisonData(comparisonData);
+    } else {
+      setComparisonData(companies.map(company => ({
+        name: company.nombre_empresa,
+        value: company[dataType][dataKey] ? 1 : 0
+      })));
+      setGraphModalOpen(true);
+    }
+  };
+
 
   const renderSectionContent = () => {
     switch (activeSection) {
@@ -47,10 +70,10 @@ const MarketAnalysis = () => {
         return (
           <ul className="market-data-list">
             {Object.entries(selectedCompany.tecnologias).map(([tech, available]) => (
-              <li 
-                className='market-item tech-item market-list-item' 
+              <li
+                className='market-item tech-item market-list-item'
                 key={tech}
-                onClick={() => setGraphModalOpen(true)}
+                onClick={() => handleItemClick('tecnologias', tech)}
               >
                 {tech}: {available ? "Si" : "No/No especificado"}
               </li>
@@ -61,7 +84,11 @@ const MarketAnalysis = () => {
         return (
           <ul className="market-data-list">
             {Object.entries(selectedCompany.servicios).map(([service, available]) => (
-              <li className='market-item market-list-item' key={service}>
+              <li
+                className='market-item market-list-item'
+                key={service}
+                onClick={() => handleItemClick('servicios', service)}
+              >
                 {service}: {available ? "Si" : "No/No especificado"}
               </li>
             ))}
@@ -71,7 +98,13 @@ const MarketAnalysis = () => {
         return (
           <ul className="market-operation-list">
             {selectedCompany.areas_operacion.map((area, idx) => (
-              <li className='market-areas market-list-item' key={idx}>{areaIcon(area)}{area}</li>
+              <li
+                className='market-areas market-list-item'
+                key={idx}
+                onClick={() => handleItemClick('areas_operacion', area)}
+              >
+                {areaIcon(area)}{area}
+              </li>
             ))}
           </ul>
         );
@@ -80,13 +113,23 @@ const MarketAnalysis = () => {
     }
   };
 
+  console.log('selectedCompany', selectedCompany)
+
   return (
     <div className="market-container">
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-        <MarketModalContent onClick={() => setModalOpen(false)}/>
+        <MarketModalContent onClick={() => setModalOpen(false)} />
       </Modal>
-      <Modal isOpen={isGraphModalOpen} onClose={() => setGraphModalOpen(false)}>
-        hola jajjaja
+      <Modal minWidth={'65%'} isOpen={isGraphModalOpen} onClose={() => setGraphModalOpen(false)}>
+        {dataType && selectedData && (
+          <div className='graph-header'>
+            <div className='graph-title'>
+              <div className='graph-title-item'>Comparación de {dataType}: </div>
+              <div className='graph-title-item' style={{ color: '#ef3333' }}>{selectedData}</div>
+            </div>
+            <MarketGraphs data={comparisonData} chartType='bar' />
+          </div>
+        )}
       </Modal>
 
       <div className="market-content">
@@ -122,13 +165,16 @@ const MarketAnalysis = () => {
                   Áreas de operación
                 </button>
               </div>
-
+              <div className="market-info-box-general" onClick={() => setGraphModalOpen(true)}>
+                Datos generales <HiOutlineArrowsPointingOut />
+              </div>
               <div className="market-data-section">
                 {renderSectionContent()}
               </div>
             </div>
           </div>
         </div>
+
         <div className="left-market-content">
           <aside className="market-sidebar">
             <h2 className="market-sidebar-title">Seleccionar compañia</h2>

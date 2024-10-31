@@ -10,11 +10,13 @@
 
 .market-content {
     padding: 1em 1em 1em 6em;
+    margin-top: 10vh;
     display: flex;
     max-height: 80vh;
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 100%;
 }
 
 .left-market-content {
@@ -23,7 +25,7 @@
 }
 
 .right-market-content {
-  width: 75%;
+  width: 90%;
 }
 
   .company-card {
@@ -75,7 +77,7 @@
   
   .market-company-item {
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -97,7 +99,7 @@
     position: relative;
     display: flex;
     padding: 30px;
-    height: 75vh;
+    height: 85vh;
     border-radius: 10px;
     overflow-y: auto;
   }
@@ -108,10 +110,11 @@
 
   .market-areas {
     font-size: 27px;
-    padding: 16px 0;
+    padding: 20px 0;
   }
 
   .market-info-box-content {
+    position: relative;
     padding: 1em 2em 1em 10em;
     border-radius: 10px;
     display: flex;
@@ -122,7 +125,6 @@
   }
 
   .market-info-box-header {
-    font-family: "Bebas Neue", sans-serif ;
     font-weight: 600;
     font-size: 20px;
     display: flex;
@@ -153,14 +155,34 @@
   }
 
   .market-option.active {
-    color: #ef3333;
+    color: #ef3333 !important;
     border-bottom: 4px solid #ef3333;
   }
 
   .market-option {
     width: 25%;
+    font-family: "Bebas Neue", sans-serif !important;
+    color: #656565 !important;
+    letter-spacing: 3px;
   }
-  
+
+  .market-info-box-general {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #333;
+    border-radius: 10px 0;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .market-info-box-general:hover {
+    cursor: pointer;
+    color: #ef3333;
+  }
+
   .market-company-name {
     margin-bottom: 20px;
     font-size: 24px;
@@ -177,7 +199,7 @@
   }
   
   .market-contact-info p, .market-data-list li {
-    margin: 7px 0;
+    margin: 12px 0;
   }
 
   .market-list-item:hover {
@@ -219,3 +241,16 @@
     color: #888;
   }
   
+  .graph-title {
+    display: flex;
+    margin-bottom: 2em;
+    font-size: 25px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-family: "Bebas Neue", sans-serif;
+    color: #696969;
+  }
+
+  .graph-title-item {
+    margin: 0 5px;
+  }
