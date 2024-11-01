@@ -30,7 +30,7 @@
 
   .company-card {
     position: absolute;
-    top: 17%;
+    top: 25%;
     left: 0;
     background-image: url('../../Assets/Imgs/topograph-background.avif');
     background-size: cover;
@@ -109,7 +109,7 @@
   }
 
   .market-areas {
-    font-size: 27px;
+    font-size: 25px;
     padding: 20px 0;
   }
 
@@ -214,10 +214,14 @@
   }
   
   .market-data-list {
-    padding-top: 2em;
+    padding-top: 1.5em;
     list-style: none;
   }
-  
+
+  .cert-item {
+    margin: 20px 0 !important;
+  }
+
   .market-operation-list {
     list-style: none;
     padding-top: 2em;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { companies } from '../../Data/companies';
 import Modal from '../Modal/Modal';
 import MarketGraphs from './MarketGraphs';
@@ -11,6 +11,7 @@ import { BiSolidCity } from "react-icons/bi";
 import { HiOutlineArrowsPointingOut } from "react-icons/hi2";
 
 import MarketModalContent from './MarketModalContent';
+import GeneralMarketGraphs from './GeneralMarketGraphs';
 import './marketAnalysis.css';
 
 const MarketAnalysis = () => {
@@ -18,6 +19,7 @@ const MarketAnalysis = () => {
   const [activeSection, setActiveSection] = useState("Tecnologías");
   const [isModalOpen, setModalOpen] = useState(true);
   const [isGraphModalOpen, setGraphModalOpen] = useState(false);
+  const [isGeneralGraphModalOpen, setGeneralGraphModalOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
   const [dataType, setDataType] = useState(null);
   const [comparisonData, setComparisonData] = useState([]);
@@ -27,21 +29,38 @@ const MarketAnalysis = () => {
       const serviceCount = Object.entries(company[module] || {}).reduce((count, [key, value]) => {
         return value === ocurrence ? count + 1 : count;
       }, 0);
-      
+
       return {
         name: company.nombre_empresa,
         value: serviceCount,
       };
     });
-  
-    console.log('comparison data', comparisonData);
+
     return comparisonData;
   };
 
-  console.log('calculateGeneralData services', calculateGeneralData("servicios", true))
-  console.log('calculateGeneralData tech', calculateGeneralData("tecnologias", true))
+  const calculateAreaGeneralData = () => {
+    const comparisonData = companies.map(company => {
+      const areasCount = company.areas_operacion.length
+      return {
+        name: company.nombre_empresa,
+        value: areasCount,
+      };
+    });
 
-  console.log('selectedCompany', selectedCompany)
+    return comparisonData;
+  }
+
+  const generalData = () => {
+    const techGeneral = calculateGeneralData("tecnologias", true);
+    const serviceGeneral = calculateGeneralData("servicios", true);
+    const areaGeneral = calculateAreaGeneralData();
+    return {
+      techGeneral,
+      serviceGeneral,
+      areaGeneral
+    }
+  };
 
   const areaIcon = (area) => {
     switch (area) {
@@ -83,7 +102,6 @@ const MarketAnalysis = () => {
       setGraphModalOpen(true);
     }
   };
-
 
   const renderSectionContent = () => {
     switch (activeSection) {
@@ -129,6 +147,21 @@ const MarketAnalysis = () => {
             ))}
           </ul>
         );
+      case "Certifications":
+        return (
+          <ul className="market-data-list">
+            {Object.entries(selectedCompany.certificaciones).map(([cert, value]) => (
+              <li
+                className="market-item cert-item"
+                key={cert}
+                /* Impide que se aprezcan los graficos para las certificaciones */
+                /* onClick={() => handleItemClick("certificaciones", cert)} */
+              >
+                {cert}: {value === true ? "Si" : value === "no especificado" ? "No/No especificado" : value}
+              </li>
+            ))}
+          </ul>
+        );
       default:
         return null;
     }
@@ -152,15 +185,27 @@ const MarketAnalysis = () => {
         )}
       </Modal>
 
+      {/* modal info general */}
+      <Modal 
+        minWidth={'80%'}
+        isOpen={isGeneralGraphModalOpen}
+        onClose={() => setGeneralGraphModalOpen(false)}
+        padding='2em 2.5em'
+      >
+        <GeneralMarketGraphs 
+          data={generalData()}
+        />
+      </Modal>
+
       <div className="market-content">
         <div className="right-market-content">
           <div className="market-info-box">
             <div className="company-card">
               <h2 className="market-company-name">{selectedCompany.nombre_empresa}</h2>
               <div className="market-contact-info">
-                <p><strong>Phone:</strong> {selectedCompany.contacto.telefono}</p>
+                <p><strong>Teléfono:</strong> {selectedCompany.contacto.telefono}</p>
                 <p><strong>Email:</strong> {selectedCompany.contacto.correo}</p>
-                <p><strong>Location:</strong> {selectedCompany.contacto.localizacion}</p>
+                <p><strong>Ubicación:</strong> {selectedCompany.contacto.localizacion}</p>
               </div>
             </div>
 
@@ -184,8 +229,14 @@ const MarketAnalysis = () => {
                 >
                   Áreas de operación
                 </button>
+                <button
+                  className={`market-option ${activeSection === "Certifications" ? "active" : ""}`}
+                  onClick={() => setActiveSection("Certifications")}
+                >
+                  Certificaciones
+                </button>
               </div>
-              <div className="market-info-box-general" onClick={() => setGraphModalOpen(true)}>
+              <div className="market-info-box-general" onClick={() => setGeneralGraphModalOpen(true)}>
                 Datos generales <HiOutlineArrowsPointingOut />
               </div>
               <div className="market-data-section">
