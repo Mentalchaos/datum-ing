@@ -8,6 +8,7 @@ import MarketAnalysis from './Components/MarketAnalysis';
 
 // Components
 import Steps from './Components/Steps/Index';
+import Tracking from './Components/Tracking';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Steps />} />
           <Route path="/market" element={<MarketAnalysis />} />
+          <Route path="/tracking" element={<Tracking />} />
         </Routes>
       </Router>
     </div>
