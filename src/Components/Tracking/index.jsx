@@ -31,8 +31,8 @@ const Tracking = () => {
         "Establecer el equipo de trabajo",
       ],
       comments: "Reunión inicial completada con éxito.",
-      estimatedCompletion: "1 de abril, 2024",
-      actualCompletion: "1 de abril, 2024",
+      estimatedCompletion: "1 de abril, 2025",
+      actualCompletion: "1 de abril, 2025",
     },
     {
       id: 2,
@@ -42,8 +42,8 @@ const Tracking = () => {
       status: "completado",
       substeps: ["Visita al sitio", "Revisión del terreno", "Análisis inicial"],
       comments: "El terreno estaba en condiciones óptimas.",
-      estimatedCompletion: "5 de abril, 2024",
-      actualCompletion: "5 de abril, 2024",
+      estimatedCompletion: "5 de abril, 2025",
+      actualCompletion: "5 de abril, 2025",
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ const Tracking = () => {
       status: "en-progreso",
       substeps: ["Configurar GPS", "Configurar estación total"],
       comments: "Equipos listos, falta calibración.",
-      estimatedCompletion: "10 de abril, 2024",
+      estimatedCompletion: "10 de abril, 2025",
       actualCompletion: null,
     },
     {
@@ -64,7 +64,7 @@ const Tracking = () => {
       status: "pendiente",
       substeps: ["Establecer puntos de referencia", "Tomar medidas"],
       comments: "Listo para iniciar.",
-      estimatedCompletion: "15 de abril, 2024",
+      estimatedCompletion: "15 de abril, 2025",
       actualCompletion: null,
     },
     {
@@ -75,7 +75,7 @@ const Tracking = () => {
       status: "pendiente",
       substeps: ["Limpiar datos", "Convertir a formatos GIS"],
       comments: "Esperando recolección de datos.",
-      estimatedCompletion: "20 de abril, 2024",
+      estimatedCompletion: "20 de abril, 2025",
       actualCompletion: null,
     },
     {
@@ -86,7 +86,7 @@ const Tracking = () => {
       status: "pendiente",
       substeps: ["Verificar precisión", "Validar consistencia de datos"],
       comments: "Por iniciar después del procesamiento.",
-      estimatedCompletion: "25 de abril, 2024",
+      estimatedCompletion: "25 de abril, 2025",
       actualCompletion: null,
     },
     {
@@ -97,7 +97,7 @@ const Tracking = () => {
       status: "pendiente",
       substeps: ["Crear informe", "Generar mapas"],
       comments: "Dependerá de la calidad de los datos.",
-      estimatedCompletion: "1 de mayo, 2024",
+      estimatedCompletion: "1 de mayo, 2025",
       actualCompletion: null,
     },
     {
@@ -108,7 +108,7 @@ const Tracking = () => {
       status: "pendiente",
       substeps: ["Presentación al cliente", "Revisión final"],
       comments: "Preparar para presentación.",
-      estimatedCompletion: "15 de mayo, 2024",
+      estimatedCompletion: "15 de mayo, 2025",
       actualCompletion: null,
     },
   ];
@@ -234,14 +234,14 @@ const Tracking = () => {
         <div className="additional-info-container">
           <h3>Información Adicional</h3>
           <p><AiOutlineEnvironment /> <strong>Ubicación:</strong> Santiago, Chile</p>
-          <p><AiOutlineCalendar /> <strong>Plazo Estimado:</strong> 1 de abril, 2024 - 15 de mayo, 2024</p>
+          <p><AiOutlineCalendar /> <strong>Plazo Estimado:</strong> 1 de abril, 2025 - 15 de mayo, 2025</p>
           <p><AiOutlineTeam /> <strong>Equipo:</strong> Juan Pérez (Topógrafo Jefe), María Gómez (Analista de Datos), Carlos Ortega (Técnico)</p>
 
           <h4>Actividad Reciente</h4>
           <ul>
-            <li>1 de abril, 2024 - Planificación Inicial completada</li>
-            <li>5 de abril, 2024 - Reconocimiento del Sitio completado</li>
-            <li>10 de abril, 2024 - Configuración de Equipos en progreso</li>
+            <li>1 de abril, 2025 - Planificación Inicial completada</li>
+            <li>5 de abril, 2025 - Reconocimiento del Sitio completado</li>
+            <li>10 de abril, 2025 - Configuración de Equipos en progreso</li>
           </ul>
 
           <h4>Documentos</h4>
