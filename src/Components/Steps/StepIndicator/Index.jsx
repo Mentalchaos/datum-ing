@@ -1,9 +1,8 @@
-// StepIndicator.jsx
 import React from 'react';
 import './stepIndicator.css';
 import { FaHome, FaUser, FaCog, FaMap, FaFileAlt, FaCheckCircle } from 'react-icons/fa';
 
-const StepIndicator = ({ actualStep }) => {
+const StepIndicator = ({ actualStep, isCompleted }) => {
   const stepsIcons = [
     <FaHome />,
     <FaUser />,
@@ -18,7 +17,9 @@ const StepIndicator = ({ actualStep }) => {
       {stepsIcons.map((icon, index) => (
         <div
           key={index}
-          className={`step ${index <= actualStep-1 ? 'active' : ''}`}
+          className={`step ${
+            index < actualStep || (index === actualStep && isCompleted) ? 'active' : ''
+          }`}
         >
           <div className="icon">{icon}</div>
           {index < stepsIcons.length - 1 && <div className="line"></div>}

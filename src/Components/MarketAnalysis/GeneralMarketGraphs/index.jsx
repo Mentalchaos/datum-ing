@@ -27,7 +27,7 @@ const GeneralMarketGraphs = ({ data }) => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="value" fill="#8884d8" name="Empresa" />
+            <Bar dataKey="value" fill="#8884d8" name="Tecnologías" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -41,7 +41,7 @@ const GeneralMarketGraphs = ({ data }) => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="value" fill="#82ca9d" name="Empresa" />
+            <Bar dataKey="value" fill="#82ca9d" name="Servicios" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -55,7 +55,7 @@ const GeneralMarketGraphs = ({ data }) => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="value" fill="#ffc658" name="Empresa" />
+            <Bar dataKey="value" fill="#ffc658" name="Áreas" />
           </BarChart>
         </ResponsiveContainer>
       </div>

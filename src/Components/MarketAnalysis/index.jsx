@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { companies } from '../../Data/companies';
 import Modal from '../Modal/Modal';
-import MarketGraphs from './MarketGraphs';
-
 import { IoIosConstruct } from "react-icons/io";
 import { GiMining } from "react-icons/gi";
 import { MdElectricBolt, MdForest, MdCellTower } from "react-icons/md";
@@ -62,6 +60,8 @@ const MarketAnalysis = () => {
     }
   };
 
+  const tecnologias = Object.keys(companies[0].tecnologias);
+
   const areaIcon = (area) => {
     switch (area) {
       case "construcción":
@@ -112,7 +112,6 @@ const MarketAnalysis = () => {
               <li
                 className='market-item tech-item market-list-item'
                 key={tech}
-                onClick={() => handleItemClick('tecnologias', tech)}
               >
                 {tech}: {available === true ? "Si" : available === "no especificado" ? "No especificado" : "No"}
               </li>
@@ -154,8 +153,6 @@ const MarketAnalysis = () => {
               <li
                 className="market-item cert-item"
                 key={cert}
-                /* Impide que se aprezcan los graficos para las certificaciones */
-                /* onClick={() => handleItemClick("certificaciones", cert)} */
               >
                 {cert}: {value === true ? "Si" : value === "no especificado" ? "No/No especificado" : value}
               </li>
@@ -172,27 +169,81 @@ const MarketAnalysis = () => {
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <MarketModalContent onClick={() => setModalOpen(false)} />
       </Modal>
-      {/* modificar aca */}
-      <Modal minWidth={'65%'} isOpen={isGraphModalOpen} onClose={() => setGraphModalOpen(false)}>
-        {dataType && selectedData && (
-          <div className='graph-header'>
-            <div className='graph-title'>
-              <div className='graph-title-item'>Comparación de {dataType}: </div>
-              <div className='graph-title-item' style={{ color: '#ef3333' }}>{selectedData}</div>
-            </div>
-            <MarketGraphs data={comparisonData} chartType='bar' />
-          </div>
-        )}
+      <Modal minWidth={'65%'} isOpen={isGraphModalOpen} onClose={() => setGraphModalOpen(!isGraphModalOpen)}>
+        <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+          <div className="general-market-title">Resumen de tecnologias</div>
+          <table style={{ width: '100%', borderCollapse: 'collapse', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+            <thead>
+              <tr>
+                <th style={{
+                  padding: '12px',
+                  backgroundColor: '#2c3e50',
+                  color: '#fff',
+                  textAlign: 'left',
+                  borderRadius: '8px 0 0 8px'
+                }}>
+                  Empresa
+                </th>
+                {tecnologias.map(tecnologia => (
+                  <th
+                    key={tecnologia}
+                    style={{
+                      padding: '12px',
+                      backgroundColor: '#2c3e50',
+                      color: '#fff',
+                      writingMode: 'vertical-lr',
+                      transform: 'rotate(180deg)',
+                      textAlign: 'center',
+                      fontSize: '12px',
+                      borderLeft: '1px solid #34495e',
+                    }}
+                  >
+                    {tecnologia}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {companies.map(company => (
+                <tr key={company.nombre_empresa} style={{ borderBottom: '1px solid #ecf0f1' }}>
+                  <td style={{
+                    padding: '12px',
+                    backgroundColor: '#ecf0f1',
+                    fontWeight: 'bold'
+                  }}>
+                    {company.nombre_empresa}
+                  </td>
+                  {tecnologias.map(tecnologia => (
+                    <td
+                      key={tecnologia}
+                      style={{
+                        padding: '10px',
+                        textAlign: 'center',
+                        borderLeft: '1px solid #ecf0f1',
+                      }}
+                    >
+                      {company.tecnologias[tecnologia] == true ? (
+                        <span style={{ color: 'green' }}>✔️</span>
+                      ) : (
+                        <span style={{ color: 'red' }}>❌</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Modal>
 
       {/* modal info general */}
-      <Modal 
+      <Modal
         minWidth={'80%'}
         isOpen={isGeneralGraphModalOpen}
         onClose={() => setGeneralGraphModalOpen(false)}
         padding='2em 2.5em'
       >
-        <GeneralMarketGraphs 
+        <GeneralMarketGraphs
           data={generalData()}
         />
       </Modal>
@@ -236,8 +287,13 @@ const MarketAnalysis = () => {
                   Certificaciones
                 </button>
               </div>
-              <div className="market-info-box-general" onClick={() => setGeneralGraphModalOpen(true)}>
-                Datos generales <HiOutlineArrowsPointingOut />
+              <div style={{display: 'flex'}}>
+                <div className="market-info-box-general" onClick={() => setGeneralGraphModalOpen(true)}>
+                  Datos generales <HiOutlineArrowsPointingOut />
+                </div>
+                <div className="market-info-box-general-test" onClick={() => setGraphModalOpen(true)}>
+                  Resumen <HiOutlineArrowsPointingOut />
+                </div>
               </div>
               <div className="market-data-section">
                 {renderSectionContent()}

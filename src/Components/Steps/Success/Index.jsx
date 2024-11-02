@@ -4,17 +4,18 @@ import Lottie from 'react-lottie';
 import animationData from '../../../Assets/Animations/MailSent.json';
 import './success.css';
 
-const Success = ({ estimatedValue = 0, estimatedTime = 10 }) => {
+const Success = ({ markAsCompleted, estimatedValue = 0, estimatedTime = 10 }) => {
   const [showAnimation, setShowAnimation] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const handleSendEmail = () => {
+  const handleSendEmail = async () => {
     setShowAnimation(true);
     setShowSuccessMessage(false);
 
     setTimeout(() => {
       setShowSuccessMessage(true);
-    }, 1500);
+      markAsCompleted();
+    }, 1000);
   };
 
   const animationOptions = {

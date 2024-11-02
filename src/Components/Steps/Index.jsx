@@ -24,6 +24,12 @@ const stepsData = {
 
 const Steps = () => {
   const [actualStep, setActualStep] = useState(0);
+  const [isCompleted, setIsCompleted] = useState(false);
+
+  const markAsCompleted = () => {
+    setIsCompleted(true);
+  };
+
   const [userInformation, setUserInformation] = useState({
     username: '',
     email: '',
@@ -53,54 +59,44 @@ const Steps = () => {
   const stepsByNumber = () => {
     switch (actualStep) {
       case 0:
-        return <Modal><Welcome next={next} /></Modal>;
+        return <Welcome next={next} />;
       case 1:
         return (
-          <Modal>
-            <UserData
-              next={next}
-              userInformation={userInformation}
-              setUserInformation={setUserInformation}
-            />
-          </Modal>
+          <UserData
+            next={next}
+            userInformation={userInformation}
+            setUserInformation={setUserInformation}
+          />
         );
       case 2:
         return (
-          <Modal>
-            <Service
-              next={next}
-              serviceInformation={serviceInformation}
-              setServiceInformation={setServiceInformation}
-            />
-          </Modal>
+          <Service
+            next={next}
+            serviceInformation={serviceInformation}
+            setServiceInformation={setServiceInformation}
+          />
         );
       case 3:
         return (
-          <Modal>
-            <Terrain
-              next={next}
-              terrainInformation={terrainInformation}
-              setTerrainInformation={setTerrainInformation}
-            />
-          </Modal>);
+          <Terrain
+            next={next}
+            terrainInformation={terrainInformation}
+            setTerrainInformation={setTerrainInformation}
+          />);
       case 4:
         return (
-          <Modal>
-            <Resume
-              next={next}
-              terrainInformation={terrainInformation}
-              serviceInformation={serviceInformation}
-              userInformation={userInformation}
-            />
-          </Modal>
+          <Resume
+            next={next}
+            terrainInformation={terrainInformation}
+            serviceInformation={serviceInformation}
+            userInformation={userInformation}
+          />
         );
       case 5:
         return (
-          <Modal>
-            <Success
-              next={next}
-            />
-          </Modal>
+          <Success
+            markAsCompleted={markAsCompleted}
+          />
         );
     }
   };
@@ -108,9 +104,9 @@ const Steps = () => {
   return (
     <div className="steps-container">
       <div className="steps-content">
-        {stepsByNumber()}
+        <Modal>{stepsByNumber()}</Modal>
       </div>
-      <StepIndicator actualStep={actualStep} />
+      <StepIndicator actualStep={actualStep} isCompleted={isCompleted} />
     </div>
   );
 };

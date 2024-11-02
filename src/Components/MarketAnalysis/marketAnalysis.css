@@ -166,21 +166,24 @@
     letter-spacing: 3px;
   }
 
-  .market-info-box-general {
+  .market-info-box-general, .market-info-box-general-test {
     position: absolute;
     bottom: 0;
     right: 0;
     padding: 1em;
     background-color: #333;
-    border-radius: 10px 0;
     color: white;
     font-weight: 600;
     letter-spacing: 1px;
   }
 
-  .market-info-box-general:hover {
+  .market-info-box-general:hover, .market-info-box-general-test:hover {
     cursor: pointer;
     color: #ef3333;
+  }
+
+  .market-info-box-general-test {
+    right: 170px;
   }
 
   .market-company-name {
