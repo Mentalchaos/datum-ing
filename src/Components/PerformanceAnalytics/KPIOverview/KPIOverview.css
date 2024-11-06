@@ -1,0 +1,22 @@
+.kpi-overview-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .kpi-item {
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    text-align: center;
+    width: 20%;
+  }
+  
+  .kpi-label {
+    color: #888;
+  }
+  
+  .kpi-value {
+    font-size: 20px;
+    font-weight: bold;
+  }

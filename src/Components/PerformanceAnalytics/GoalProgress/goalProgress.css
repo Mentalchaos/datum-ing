@@ -1,0 +1,47 @@
+.goal-progress-container {
+    margin-top: 20px;
+    padding: 0 3em;
+  }
+  
+  .goal-progress-title {
+    margin: 40px 0 25px 0;
+    color: #5c5c5c;
+    font-size: 17px;
+  }
+  
+  .goal-item {
+    margin-bottom: 15px;
+  }
+  
+  .goal-label {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .goal-bar-background {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 35px;
+    width: 100%;
+  }
+  
+  .goal-bar-progress {
+    background-color: #53c27e;
+    height: 100%;
+    margin: 0;
+  }
+  
+  .goal-percentage {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #888;
+  }
+
+  .goal-percentage-item {
+    margin: 0;
+    padding: 0.5em 1em;
+    font-size: 15px;
+  }

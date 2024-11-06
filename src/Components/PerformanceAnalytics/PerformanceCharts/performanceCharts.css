@@ -1,0 +1,16 @@
+.performance-charts-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .line-chart-container,
+  .pie-chart-container,
+  .bar-chart-container {
+    width: 30%;
+  }
+  
+  .chart-title {
+    text-align: center;
+  }
+  

@@ -42,7 +42,7 @@ const Tracking = () => {
           </div>
         </div>
 
-        <div className="licitation-header">
+        <div className="licitation-header" onClick={() => window.location.href = '/metrics'}>
           <div className="sidebar-option-name">
             <BsGraphUp className="sidebar-option-icon" />
             Métricas

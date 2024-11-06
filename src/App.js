@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Header from './Components/Header/Index';
 import MarketAnalysis from './Components/MarketAnalysis';
+import PerformanceAnalytics from './Components/PerformanceAnalytics';
 
 // Components
 import Steps from './Components/Steps/Index';
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/" element={<Steps />} />
           <Route path="/market" element={<MarketAnalysis />} />
           <Route path="/tracking" element={<Tracking />} />
+          <Route path="/metrics" element={<PerformanceAnalytics />} />
         </Routes>
       </Router>
     </div>
