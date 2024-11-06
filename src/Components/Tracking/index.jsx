@@ -1,167 +1,69 @@
 import React, { useState } from "react";
 import {
-  AiOutlineCheckCircle,
-  AiOutlineClockCircle,
   AiOutlineTeam,
-  AiOutlineFileSearch,
   AiOutlineEnvironment,
   AiOutlineCalendar,
 } from "react-icons/ai";
-import { FiSettings } from "react-icons/fi";
-import { SlArrowDown } from "react-icons/sl";
+import { SlArrowDown, SlArrowRight, SlArrowUp } from "react-icons/sl";
+import { licitations } from "../../Data/licitations";
+import { steps } from "../../Data/trackingSteps";
+import { TiClipboard } from "react-icons/ti";
+import { FaHome } from "react-icons/fa";
+import { BsGraphUp } from "react-icons/bs";
+import { RiListCheck } from "react-icons/ri";
 import "./tracking.css";
 
 const Tracking = () => {
   const [expandedStepId, setExpandedStepId] = useState(null);
+  const [isLicitationExpanded, setIsLicitationExpanded] = useState(false);
+  const [isDocumentsExpanded, setIsDocumentsExpanded] = useState(false);
+
+  const toggleLicitationList = () => {
+    setIsLicitationExpanded(!isLicitationExpanded);
+    setIsDocumentsExpanded(false);
+  };
+
+  const toggleDocumentsList = () => {
+    setIsDocumentsExpanded(!isDocumentsExpanded);
+    setIsLicitationExpanded(false);
+  };
 
   const toggleStepDetails = (id) => {
     setExpandedStepId(expandedStepId === id ? null : id);
   };
 
-  const steps = [
-    {
-      id: 1,
-      name: "Planificación Inicial",
-      description: "Definir el alcance del proyecto, requisitos y objetivos.",
-      icon: <AiOutlineFileSearch />,
-      status: "completado",
-      substeps: [
-        "Identificar los requisitos del cliente",
-        "Definir el presupuesto",
-        "Establecer el equipo de trabajo",
-      ],
-      comments: "Reunión inicial completada con éxito.",
-      estimatedCompletion: "1 de abril, 2025",
-      actualCompletion: "1 de abril, 2025",
-    },
-    {
-      id: 2,
-      name: "Reconocimiento del Sitio",
-      description: "Evaluación del sitio para la preparación de la encuesta.",
-      icon: <AiOutlineEnvironment />,
-      status: "completado",
-      substeps: ["Visita al sitio", "Revisión del terreno", "Análisis inicial"],
-      comments: "El terreno estaba en condiciones óptimas.",
-      estimatedCompletion: "5 de abril, 2025",
-      actualCompletion: "5 de abril, 2025",
-    },
-    {
-      id: 3,
-      name: "Configuración de Equipos",
-      description: "Configurar GPS, estación total y otros equipos.",
-      icon: <FiSettings />,
-      status: "en-progreso",
-      substeps: ["Configurar GPS", "Configurar estación total"],
-      comments: "Equipos listos, falta calibración.",
-      estimatedCompletion: "10 de abril, 2025",
-      actualCompletion: null,
-    },
-    {
-      id: 4,
-      name: "Recolección de Datos",
-      description: "Recopilar datos topográficos del sitio de la encuesta.",
-      icon: <AiOutlineClockCircle />,
-      status: "pendiente",
-      substeps: ["Establecer puntos de referencia", "Tomar medidas"],
-      comments: "Listo para iniciar.",
-      estimatedCompletion: "15 de abril, 2025",
-      actualCompletion: null,
-    },
-    {
-      id: 5,
-      name: "Procesamiento de Datos",
-      description: "Procesar los datos en un formato utilizable.",
-      icon: <AiOutlineClockCircle />,
-      status: "pendiente",
-      substeps: ["Limpiar datos", "Convertir a formatos GIS"],
-      comments: "Esperando recolección de datos.",
-      estimatedCompletion: "20 de abril, 2025",
-      actualCompletion: null,
-    },
-    {
-      id: 6,
-      name: "Control de Calidad",
-      description: "Revisar la precisión de los datos y control de calidad.",
-      icon: <AiOutlineCheckCircle />,
-      status: "pendiente",
-      substeps: ["Verificar precisión", "Validar consistencia de datos"],
-      comments: "Por iniciar después del procesamiento.",
-      estimatedCompletion: "25 de abril, 2025",
-      actualCompletion: null,
-    },
-    {
-      id: 7,
-      name: "Generación de Reporte",
-      description: "Generar un informe topográfico detallado y mapas.",
-      icon: <AiOutlineFileSearch />,
-      status: "pendiente",
-      substeps: ["Crear informe", "Generar mapas"],
-      comments: "Dependerá de la calidad de los datos.",
-      estimatedCompletion: "1 de mayo, 2025",
-      actualCompletion: null,
-    },
-    {
-      id: 8,
-      name: "Entrega Final",
-      description: "Entregar informe completo al cliente.",
-      icon: <AiOutlineCheckCircle />,
-      status: "pendiente",
-      substeps: ["Presentación al cliente", "Revisión final"],
-      comments: "Preparar para presentación.",
-      estimatedCompletion: "15 de mayo, 2025",
-      actualCompletion: null,
-    },
-  ];
-
-  const licitations = [
-    { id: 1, name: "Licitación #1234", status: "En Progreso" },
-    { id: 2, name: "Licitación #1235", status: "Completada" },
-    { id: 3, name: "Licitación #1236", status: "Cancelada" },
-    { id: 4, name: "Licitación #1237", status: "Pendiente" },
-    { id: 5, name: "Licitación #1238", status: "En Revisión" },
-    { id: 6, name: "Licitación #1239", status: "En Progreso" },
-    { id: 7, name: "Licitación #1240", status: "Completada" },
-    { id: 8, name: "Licitación #1241", status: "Cancelada" },
-    { id: 9, name: "Licitación #1242", status: "Pendiente" },
-    { id: 10, name: "Licitación #1243", status: "En Revisión" },
-    { id: 11, name: "Licitación #1244", status: "En Progreso" },
-    { id: 12, name: "Licitación #1245", status: "Completada" },
-    { id: 13, name: "Licitación #1246", status: "Cancelada" },
-    { id: 14, name: "Licitación #1247", status: "Pendiente" },
-    { id: 15, name: "Licitación #1248", status: "En Revisión" },
-    { id: 16, name: "Licitación #1249", status: "En Progreso" },
-    { id: 17, name: "Licitación #1250", status: "Completada" },
-    { id: 18, name: "Licitación #1251", status: "Cancelada" },
-    { id: 19, name: "Licitación #1252", status: "Pendiente" },
-    { id: 20, name: "Licitación #1253", status: "En Revisión" },
-    { id: 1, name: "Licitación #1234", status: "En Progreso" },
-    { id: 2, name: "Licitación #1235", status: "Completada" },
-    { id: 3, name: "Licitación #1236", status: "Cancelada" },
-    { id: 4, name: "Licitación #1237", status: "Pendiente" },
-    { id: 5, name: "Licitación #1238", status: "En Revisión" },
-    { id: 6, name: "Licitación #1239", status: "En Progreso" },
-    { id: 7, name: "Licitación #1240", status: "Completada" },
-    { id: 8, name: "Licitación #1241", status: "Cancelada" },
-    { id: 9, name: "Licitación #1242", status: "Pendiente" },
-    { id: 10, name: "Licitación #1243", status: "En Revisión" },
-    { id: 11, name: "Licitación #1244", status: "En Progreso" },
-    { id: 12, name: "Licitación #1245", status: "Completada" },
-    { id: 13, name: "Licitación #1246", status: "Cancelada" },
-    { id: 14, name: "Licitación #1247", status: "Pendiente" },
-    { id: 15, name: "Licitación #1248", status: "En Revisión" },
-    { id: 16, name: "Licitación #1249", status: "En Progreso" },
-    { id: 17, name: "Licitación #1250", status: "Completada" },
-    { id: 18, name: "Licitación #1251", status: "Cancelada" },
-    { id: 19, name: "Licitación #1252", status: "Pendiente" },
-    { id: 20, name: "Licitación #1253", status: "En Revisión" }
-  ];
-
-
   return (
     <div className="topographic-tracker-wrapper">
       <div className="licitation-sidebar">
-        <h3>Licitaciones</h3>
-        <ul className="licitation-list">
+        <div className="licitation-header">
+          <div className="sidebar-option-name">
+            <FaHome className="sidebar-option-icon" />
+            Inicio
+          </div>
+        </div>
+
+        <div className="licitation-header">
+          <div className="sidebar-option-name">
+            <BsGraphUp className="sidebar-option-icon" />
+            Métricas
+          </div>
+        </div>
+
+        <div className="licitation-header" onClick={toggleLicitationList}>
+          <div className="sidebar-option-name">
+            <RiListCheck className="sidebar-option-icon" />
+            Licitaciones
+          </div>
+          <div className="sidebar-option-caret">
+            {isLicitationExpanded ? <SlArrowUp /> : <SlArrowDown />}
+          </div>
+        </div>
+
+        <div className="sidebar-icon">
+          <SlArrowRight />
+        </div>
+
+        <ul className={`licitation-list ${isLicitationExpanded ? "expanded" : ""}`}>
           {licitations.map((licit) => (
             <li key={licit.id} className={`licit-item ${licit.status.toLowerCase()}`}>
               <span>{licit.name}</span>
@@ -169,10 +71,29 @@ const Tracking = () => {
             </li>
           ))}
         </ul>
+
+        <div className="licitation-header" onClick={toggleDocumentsList}>
+          <div className="sidebar-option-name">
+            <TiClipboard className="sidebar-option-icon" />
+            Documentos
+          </div>
+          <div className="sidebar-option-caret">
+            {isDocumentsExpanded ? <SlArrowUp /> : <SlArrowDown />}
+          </div>
+        </div>
+
+        <ul className={`licitation-list ${isDocumentsExpanded ? "expandedd" : ""}`}>
+          <li className="licit-item"><a href="#">Acta de Constitución</a></li>
+          <li className="licit-item"><a href="#">Plan de Proyecto</a></li>
+          <li className="licit-item"><a href="#">Informe de Reconocimiento del Sitio</a></li>
+          <li className="licit-item"><a href="#">Reporte de Configuración de Equipos</a></li>
+          <li className="licit-item"><a href="#">Informe de Control de Calidad</a></li>
+          <li className="licit-item"><a href="#">Informe Final de Topografía</a></li>
+        </ul>
       </div>
 
       <div className="topographic-tracker-container">
-      <div className="proyect-number">Licitación N#123456789</div>
+        <div className="proyect-number">Licitación N#123456789</div>
         <div className="tracker-header">
           <div className="tracker-title">Levantamiento Topográfico</div>
           <p><strong>Cliente:</strong> XYZ Construcciones S.A.</p>
@@ -185,6 +106,17 @@ const Tracking = () => {
             <div className="progress-bar-fill" style={{ width: "25%" }}>
               25% Completado
             </div>
+          </div>
+        </div>
+
+        <div className="project-description">
+          <h3>Descripción</h3>
+          <div>
+            Este proyecto de levantamiento topográfico cubre un área de 50 hectáreas,
+            donde se realizarán mediciones detalladas para la construcción de una
+            nueva autopista. Los datos topográficos obtenidos serán cruciales para
+            el diseño de estructuras de soporte y la planificación de drenajes,
+            asegurando precisión y eficiencia en cada fase de la obra.
           </div>
         </div>
 
@@ -201,8 +133,8 @@ const Tracking = () => {
                     {step.status === "completado"
                       ? "Completado"
                       : step.status === "en-progreso"
-                      ? "En Progreso"
-                      : "Pendiente"}
+                        ? "En Progreso"
+                        : "Pendiente"}
                   </span>
                 </div>
                 <div className={`caret ${expandedStepId === step.id ? 'caret-rotated' : ''}`}>
@@ -213,13 +145,34 @@ const Tracking = () => {
               <div className={`step-details ${expandedStepId === step.id ? 'expanded' : ''}`}>
                 {expandedStepId === step.id && (
                   <>
-                    <h5>Subpasos:</h5>
-                    <ul>
+                    <h5>Tareas:</h5>
+                    <ul className="substeps-list">
+                      <div className="substep-item-header">
+                        <span className="substep-title s-info s-title">título</span>
+                        <span className="substep-date s-info s-title">Fecha estimada</span>
+                        <span className="substep-person s-info s-title">Encargado</span>
+                        <span className="substep-state s-info s-title">Status</span>
+                        <span className="substep-priority s-info s-title">Prioridad</span>
+                      </div>
+                    </ul>
+                    <ul className="substeps-list">
                       {step.substeps.map((substep, index) => (
-                        <li key={index}>{substep}</li>
+                        <li key={index} className="substep-item">
+                          <span className="substep-title s-info">{substep.title}</span>
+                          <span className="substep-date s-info">{substep.estimatedDate}</span>
+                          <span className="substep-person s-info">{substep.personInCharge}</span>
+                          <span className={`status-label s-info s ${step.status}`}>
+                            {step.status === "completado"
+                              ? "Completado"
+                              : step.status === "en-progreso"
+                                ? "En Progreso"
+                                : "Pendiente"}
+                          </span>
+                          <span className="substep-priority s-info">{substep.priority}</span>
+                        </li>
                       ))}
                     </ul>
-                    <p><strong>Comentarios:</strong> {step.comments}</p>
+                    <p className="steps-aditional-info"><strong>Comentarios:</strong> {step.comments}</p>
                     <p><strong>Fecha Estimada de Finalización:</strong> {step.estimatedCompletion}</p>
                     {step.actualCompletion && (
                       <p><strong>Fecha Real de Finalización:</strong> {step.actualCompletion}</p>
@@ -242,16 +195,6 @@ const Tracking = () => {
             <li>1 de abril, 2025 - Planificación Inicial completada</li>
             <li>5 de abril, 2025 - Reconocimiento del Sitio completado</li>
             <li>10 de abril, 2025 - Configuración de Equipos en progreso</li>
-          </ul>
-
-          <h4>Documentos</h4>
-          <ul className="document-list">
-            <li><a href="#">Acta de Constitución</a></li>
-            <li><a href="#">Plan de Proyecto</a></li>
-            <li><a href="#">Informe de Reconocimiento del Sitio</a></li>
-            <li><a href="#">Reporte de Configuración de Equipos</a></li>
-            <li><a href="#">Informe de Control de Calidad</a></li>
-            <li><a href="#">Informe Final de Topografía</a></li>
           </ul>
         </div>
       </div>
