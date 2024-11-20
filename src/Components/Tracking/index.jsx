@@ -123,7 +123,7 @@ const Tracking = () => {
 
       {showLicitation && (
         <div className="topographic-tracker-container">
-          <div className="proyect-number">Licitación N#123456789</div>
+          <div className="proyect-number">Licitación N#123</div>
           <div className="tracker-header">
             <div className="tracker-title">Levantamiento Topográfico</div>
             <p><strong>Cliente:</strong> XYZ Construcciones S.A.</p>
