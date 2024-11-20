@@ -3,10 +3,10 @@ import './KPIOverview.css';
 
 function KPIOverview() {
   const KPIs = [
-    { label: 'Tasa de Rebote', value: '35%' },
-    { label: 'Duración Promedio de Sesión', value: '3m 25s' },
-    { label: 'Páginas por Sesión', value: '4.5' },
-    { label: 'Clientes Recurrentes', value: '68%' },
+    { label: 'Proyectos Completados', value: '120' },
+    { label: 'Tiempo Promedio por Proyecto', value: '15 días' },
+    { label: 'Precisión de Mediciones', value: '98%' },
+    { label: 'Índice de Satisfacción del Cliente', value: '92%' },
   ];
 
   return (

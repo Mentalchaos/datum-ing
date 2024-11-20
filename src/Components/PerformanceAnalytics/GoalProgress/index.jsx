@@ -3,9 +3,9 @@ import './goalProgress.css';
 
 function GoalProgress() {
   const goals = [
-    { label: 'Ingresos Anuales', progress: 75, goal: '(CLP) $1.000.000.000' },
-    { label: 'Retención de Clientes', progress: 60, goal: '100%' },
-    { label: 'Meta de Nuevos Clientes', progress: 85, goal: 250 },
+    { label: 'Ingresos Anuales', progress: '$750.000.000', goal: '(CLP) $1.000.000.000', percentage: 80 },
+    { label: 'Retención de Clientes', progress: 60, goal: '100%', percentage: 60 },
+    { label: 'Meta de Nuevos Clientes', progress: '200', goal: 250, percentage: 70 },
   ];
 
   return (
@@ -15,10 +15,10 @@ function GoalProgress() {
         <div key={index} className="goal-item">
           <p className="goal-label">{goal.label}</p>
           <div className="goal-bar-background">
-            <div className="goal-bar-progress" style={{ width: `${goal.progress}%` }}></div>
+            <div className="goal-bar-progress" style={{ width: `${goal.percentage}%` }}></div>
           </div>
           <div className="goal-percentage">
-            <div className='goal-percentage-item'>{goal.progress}%</div>
+            <div className='goal-percentage-item'>{goal.progress === 60 ? `${goal.progress}%` : `${goal.progress}`}</div>
             <div className='goal-percentage-item'>{goal.goal}</div>
           </div>
         </div>

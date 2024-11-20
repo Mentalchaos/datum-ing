@@ -61,7 +61,7 @@ function PerformanceCharts() {
       </div>
 
       <div className="pie-chart-container">
-        <h4 className="chart-title">Ingresos por Producto</h4>
+        <h4 className="chart-title">Ingresos por Servicio</h4>
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>
             <Pie
