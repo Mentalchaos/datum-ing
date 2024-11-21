@@ -153,10 +153,10 @@ const LicitationMetrics = () => {
                         <p><strong>Presupuesto Gastado:</strong> {currentBudget.toLocaleString("es-CL")} CLP</p>
                     </div> */}
                         <div className="pie-chart-container">
-                            <BudgetPieChart data={plannedCosts} total={plannedBudget} title={`Gastos planeados: ${plannedBudget.toLocaleString("es-CL")} CLP`} />
+                            <BudgetPieChart data={plannedCosts} total={plannedBudget} title={`Presupuesto proyecto: ${plannedBudget.toLocaleString("es-CL")} CLP`} />
                         </div>
                         <div className="pie-chart-container">
-                            <BudgetPieChart data={budgetData} total={currentBudget} title={`Gastos actuales: ${currentBudget.toLocaleString("es-CL")} CLP`} />
+                            <BudgetPieChart data={budgetData} total={currentBudget} title={`Total gastado: ${currentBudget.toLocaleString("es-CL")} CLP`} />
                         </div>
                     </div>
                     <div className="desglose">Desglose de gastos</div>
