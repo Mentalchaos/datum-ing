@@ -18,7 +18,7 @@
   font-family: Arial, sans-serif;
   color: #333;
   padding: 30px;
-  margin-top: 17vh;
+  margin-top: 8vh;
   width: 1300px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -409,15 +409,15 @@
 }
 
 .licitation-list.expanded {
-  max-height: 45vh;
+  max-height: 30vh;
   transition: max-height 0.3s ease;
   overflow: auto;
 }
 
 .licitation-list.expandedd {
-  max-height: 45vh;
+  max-height: 30vh;
   transition: max-height 0.3s ease;
-  overflow: none;
+  overflow: auto;
 }
 
 .sidebar-option-name {
@@ -433,5 +433,5 @@
 }
 
 .sidebar-option-icon {
-  margin: 0 7px 0 0;
+  margin: 0 15px 0 0;
 }

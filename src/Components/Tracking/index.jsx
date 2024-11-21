@@ -11,6 +11,7 @@ import { TiClipboard } from "react-icons/ti";
 import { FaHome } from "react-icons/fa";
 import { BsGraphUp } from "react-icons/bs";
 import { RiListCheck } from "react-icons/ri";
+import { FaChartPie } from "react-icons/fa";
 import "./tracking.css";
 
 const Tracking = () => {
@@ -61,9 +62,19 @@ const Tracking = () => {
         <div className="licitation-header" onClick={() => window.location.href = '/metrics'}>
           <div className="sidebar-option-name">
             <BsGraphUp className="sidebar-option-icon" />
-            Métricas
+            Métricas Anuales
           </div>
         </div>
+
+
+        {showLicitation && (
+          <div className="licitation-header" onClick={() => window.location.href = '/licitation'}>
+            <div className="sidebar-option-name">
+              <FaChartPie className="sidebar-option-icon" />
+              Métricas de Licitación
+            </div>
+          </div>
+        )}
 
         <div className="licitation-header" onClick={toggleLicitationList}>
           <div className="sidebar-option-name">
@@ -89,15 +100,15 @@ const Tracking = () => {
         </ul>
 
         {showLicitation && (
-        <div className="licitation-header" onClick={toggleDocumentsList}>
-          <div className="sidebar-option-name">
-            <TiClipboard className="sidebar-option-icon" />
-            Documentos
+          <div className="licitation-header" onClick={toggleDocumentsList}>
+            <div className="sidebar-option-name">
+              <TiClipboard className="sidebar-option-icon" />
+              Documentos
+            </div>
+            <div className="sidebar-option-caret">
+              {isDocumentsExpanded ? <SlArrowUp /> : <SlArrowDown />}
+            </div>
           </div>
-          <div className="sidebar-option-caret">
-            {isDocumentsExpanded ? <SlArrowUp /> : <SlArrowDown />}
-          </div>
-        </div>
         )}
 
         <ul className={`licitation-list ${isDocumentsExpanded ? "expandedd" : ""}`}>
@@ -113,7 +124,7 @@ const Tracking = () => {
       <div className="search-bar-container">
         <input
           type="text"
-          placeholder="Buscar licitación"
+          placeholder="Ingresa código de licitación"
           value={searchInput}
           onChange={handleSearch}
           className="search-bar"

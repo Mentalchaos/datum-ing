@@ -10,6 +10,7 @@ import PerformanceAnalytics from './Components/PerformanceAnalytics';
 // Components
 import Steps from './Components/Steps/Index';
 import Tracking from './Components/Tracking';
+import LicitationMetrics from './Components/LicitationMetrics';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/market" element={<MarketAnalysis />} />
           <Route path="/tracking" element={<Tracking />} />
           <Route path="/metrics" element={<PerformanceAnalytics />} />
+          <Route path="/licitation" element={<LicitationMetrics />} />
         </Routes>
       </Router>
     </div>
