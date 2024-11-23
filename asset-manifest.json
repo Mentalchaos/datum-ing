@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/datum-ing/static/css/main.7237cf48.css",
-    "main.js": "/datum-ing/static/js/main.212eb254.js",
+    "main.js": "/datum-ing/static/js/main.2bf93254.js",
     "static/media/topograph-background.avif": "/datum-ing/static/media/topograph-background.92ceba2a30b13d0cf37e.avif",
     "static/media/logo-datum-white.png": "/datum-ing/static/media/logo-datum-white.30456bbf7edaada37de3.png",
     "index.html": "/datum-ing/index.html",
     "main.7237cf48.css.map": "/datum-ing/static/css/main.7237cf48.css.map",
-    "main.212eb254.js.map": "/datum-ing/static/js/main.212eb254.js.map"
+    "main.2bf93254.js.map": "/datum-ing/static/js/main.2bf93254.js.map"
   },
   "entrypoints": [
     "static/css/main.7237cf48.css",
-    "static/js/main.212eb254.js"
+    "static/js/main.2bf93254.js"
   ]
 }
