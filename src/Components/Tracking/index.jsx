@@ -59,7 +59,7 @@ const Tracking = () => {
           </div>
         </div>
 
-        <div className="licitation-header" onClick={() => window.location.href = 'datum-ing/#/metrics'}>
+        <div className="licitation-header" onClick={() => window.location.href = '#/metrics'}>
           <div className="sidebar-option-name">
             <BsGraphUp className="sidebar-option-icon" />
             Métricas Anuales
@@ -68,7 +68,7 @@ const Tracking = () => {
 
 
         {showLicitation && (
-          <div className="licitation-header" onClick={() => window.location.href = 'datum-ing/#/licitation'}>
+          <div className="licitation-header" onClick={() => window.location.href = '#/licitation'}>
             <div className="sidebar-option-name">
               <FaChartPie className="sidebar-option-icon" />
               Métricas de Licitación
